@@ -1,6 +1,8 @@
+const prompt = require('prompt-sync')();
+let marks = parseInt(prompt('enter your marks '))
 function Grade(score) {
 
-    let score= prompt("enter marks");
+ 
 if (score >79.0 && score <=100){
    console.log( "A") 
 
@@ -16,4 +18,4 @@ console.log("E")
 
 }
 }
-Grade()
+Grade(marks)
