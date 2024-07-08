@@ -1,16 +1,19 @@
 const prompt = require('prompt-sync')();
 
-// Input for basic salary and benefits
-const basicSalary = parseFloat(prompt('Enter basic salary: '));
-const benefits = parseFloat(prompt('Enter benefits: '));
+// Input for basic salary
+const basicSalaryInput = prompt('Enter basic salary: ');
+const basicSalary = parseFloat(basicSalaryInput);
 
-if (isNaN(basicSalary) || isNaN(benefits)) {
-    console.log('Invalid input. Please enter a valid basic salary and benefits.');
-} else if (basicSalary <= 0 || benefits <= 0) {
-    console.log('Invalid input. Basic salary and benefits must be greater than 0');
+// Check if basicSalary is valid
+if (isNaN(basicSalary) || basicSalary <= 0) {
+    console.log('Invalid input. Please enter a valid basic salary greater than 0.');
 } else {
+    // Input for benefits (optional)
+    const benefitsInput = prompt('Enter benefits (optional, press enter if none): ');
+    const benefits = parseFloat(benefitsInput);
+
     // Calculate gross salary
-    const grossSalary = basicSalary + benefits;
+    const grossSalary = basicSalary + (isNaN(benefits) ? 0 : benefits);
     console.log(`Gross Salary: ${grossSalary}`);
 
     // Calculate PAYE
